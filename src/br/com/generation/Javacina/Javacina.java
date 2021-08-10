@@ -5,11 +5,13 @@ public class Javacina {
 
 	public static void main(String[] args) {
 		
+			
 				int laudov=0;
 				Scanner entrada = new Scanner(System.in);
 
 				Pessoa p = new Pessoa();
 				TratamentoDeErros trataerro=new TratamentoDeErros();
+				
 
 				System.out.println("Por favor insira seu nome");
 				p.setnome(entrada.nextLine());
@@ -19,7 +21,8 @@ public class Javacina {
 				p.setidade(entrada.nextInt());
 				trataerro.idadeIncorreta(p.getidade());
 				
-					
+			
+				
 				if(p.getidade()>=80) {
 						
 						PessoassemComorbidade ps = new PessoassemComorbidade();
@@ -42,7 +45,7 @@ public class Javacina {
 					System.out.println("Idade: " + ps.getidade());
 					ps.setData(ps.getidade());
 						return;
-									}
+									}	
 						
 				
 				System.out.println("Digite o número caso tenha alguma dessas comorbidades : ");
@@ -56,6 +59,7 @@ public class Javacina {
 					System.out.println("Digite novamente");
 					p.setpresençadeComorbidade(entrada.nextInt());
 				}
+				
 
 				if (p.getpresençadeComorbidade() == 1 || p.getpresençadeComorbidade() == 2 || p.getpresençadeComorbidade() == 3
 						|| p.getpresençadeComorbidade() == 4) {
@@ -72,17 +76,8 @@ public class Javacina {
 					System.out.println("Digite o número respectivo de sua complicação médica");
 					System.out.println();
 					System.out.println("1-Voce toma algum remédio anticoagulante "+"\n"+"2-Voce tem alergia a algum componente da vacina"+"\n"+"3-nehuma das opções ");
-					p.setComplicavacia(entrada.nextInt());
-					//System.out.println("Voce tem algum laudo medico confirmando a sua possibilidade de se vacinar? "+"\n"+"1-Sim"+"\n"+"2-Não");
-					
-				
-						laudov=entrada.nextInt();
-				
-						if(laudov==2) {
-							System.out.println("infelismente voce não poderá se vacinar");
-						}
-					
-					if (p.getComplicavacia() == 3|| laudov==1) {
+						p.setComplicavacia(entrada.nextInt());
+				if (p.getComplicavacia() == 3) {
 						PessoassemComorbidade ps = new PessoassemComorbidade();
 						ps.setnome(p.getnome());
 						ps.setidade(p.getidade());
@@ -91,6 +86,16 @@ public class Javacina {
 						System.out.println("Idade: " + ps.getidade());
 						ps.setData(ps.getidade());
 					}
+						
+						
+					
+				
+					laudov=entrada.nextInt();
+						if(laudov==2) {
+							System.out.println("infelizmente voce não poderá se vacinar");
+						}
+					
+					
 				}
 				entrada.close();
 			}
